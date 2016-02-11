@@ -19,7 +19,7 @@ public class MyDeadboltHandler extends AbstractDeadboltHandler {
 	public F.Promise<Optional<Result>> beforeAuthCheck(Http.Context context) {
 		if (PlayAuthenticate.isLoggedIn(context.session())) {
 			// user is logged in
-			return F.Promise.pure(null);
+			return F.Promise.promise(Optional::empty);
 		} else {
 			// user is not logged in
 
