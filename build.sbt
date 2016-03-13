@@ -14,6 +14,7 @@ libraryDependencies ++= Seq(
   "org.mongodb.morphia" % "morphia-logging-slf4j" % "1.0.1",
   "org.mongodb.morphia" % "morphia-validation" % "1.0.1",
   "org.webjars" % "bootstrap" % "3.0.0",
+  "org.seleniumhq.selenium" % "selenium-java" % "2.52.0" % "test",
   javaJdbc,
   cache,
   javaWs
