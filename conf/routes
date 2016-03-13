@@ -2,6 +2,10 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+# Problem creation page
+GET     /problem                    controllers.ProblemAdder.problem()
+POST    /problem                    controllers.ProblemAdder.doCreateProblem()
+
 # Home page
 GET     /                           controllers.Application.index()
 GET     /restricted                 controllers.Application.restricted()

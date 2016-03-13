@@ -1,0 +1,75 @@
+@(problemForm: Form[_])
+
+@import helper._
+
+@main(Messages("playauthenticate.newproblem.title"),"newproblem") {
+
+    <div class="row">
+        <div class="span6">
+            <h1>@Messages("playauthenticate.newproblem.title")</h1>
+        </div>
+    </div>
+
+    <div id="newproblem" class="row">
+        @helper.form(routes.ProblemAdder.doCreateProblem) {
+
+            @if(problemForm.hasGlobalErrors) {
+                <p class="error">
+                    <span class="label label-important">@problemForm.globalError.message</span>
+                </p>
+            }
+
+            @inputText(
+                problemForm("name"),
+                '_label -> Messages("playauthenticate.newproblem.name"),
+                'placeholder -> Messages("newproblem.nameHint")
+            )
+
+            @textarea(
+                problemForm("desc"),
+                args = 'rows -> 5, 'cols -> 100,
+                '_label -> Messages("newproblem.desc")
+            )
+
+            @helper.select(
+                problemForm("returnType"),
+                options = Seq("INT" -> "int",
+                    "DOUBLE" -> "double",
+                    "STRING" -> "string",
+                    "VEC_INT" -> "vector<int>",
+                    "VEC_DOUBLE" -> "vector<double>",
+                    "VEC_STRING" -> "vector<string>",
+                    "VEC_VEC_INT" -> "vector<vector<int>>",
+                    "VEC_VEC_DOUBLE" -> "vector<vector<double>>",
+                    "VEC_VEC_STRING" -> "vector<vector<string>>"),
+                '_label -> "Return Type",
+                '_error -> problemForm("returnType").error.map(_.withMessage(Messages("newproblem.requiredReturnType"))))
+
+            @inputText(
+                problemForm("functionName"),
+                '_label -> Messages("newproblem.functionName"),
+                'placeholder -> Messages("newproblem.functionNameHint")
+            )
+
+            @helper.repeat(problemForm("params"), min=4) { param =>
+                @helper.select(
+                    param,
+                    options = Seq(
+                        "NONE" -> "none",
+                        "INT" -> "int",
+                        "DOUBLE" -> "double",
+                        "STRING" -> "string",
+                        "VEC_INT" -> "vector<int>",
+                        "VEC_DOUBLE" -> "vector<double>",
+                        "VEC_STRING" -> "vector<string>",
+                        "VEC_VEC_INT" -> "vector<vector<int>>",
+                        "VEC_VEC_DOUBLE" -> "vector<vector<double>>",
+                        "VEC_VEC_STRING" -> "vector<vector<string>>"),
+                    '_label -> "Return Type",
+                    '_error -> param.error.map(_.withMessage(Messages("newproblem.requiredReturnType"))))
+
+            }
+            <input type="submit" value="@Messages("playauthenticate.newproblem.create")" class="btn btn-primary">
+        }
+    </div>
+}

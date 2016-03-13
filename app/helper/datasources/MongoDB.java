@@ -47,6 +47,7 @@ public final class MongoDB {
             MorphiaObject.morphia.map(SecurityRole.class);
             MorphiaObject.morphia.map(TokenAction.class);
             MorphiaObject.morphia.map(UserPermission.class);
+            MorphiaObject.morphia.map(Problem.class);
 
             MorphiaObject.datastore.ensureIndexes();
             MorphiaObject.datastore.ensureCaps();

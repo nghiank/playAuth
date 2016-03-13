@@ -2,7 +2,7 @@ package codegen.models;
 
 
 public enum Type {
-
+    NONE("none", null),
     INT("int", null),
     DOUBLE("double", null),
     STRING("string", null),

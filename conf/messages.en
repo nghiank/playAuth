@@ -120,6 +120,7 @@ playauthenticate.navigation.login=Log in
 playauthenticate.navigation.home=Home
 playauthenticate.navigation.restricted=Restricted page
 playauthenticate.navigation.signup=Sign up
+playauthenticate.navigation.newproblem=New problem
 
 # play-authenticate: Handler
 playauthenticate.handler.loginfirst=You need to log in first, to view ''{0}''
@@ -143,6 +144,16 @@ playauthenticate.index.intro_2=This is a template for a simple application with 
 playauthenticate.index.intro_3=Check the main navigation above for simple page examples including supported authentication features.
 playauthenticate.index.heading=Heading
 playauthenticate.index.details=View details
+
+# new problem
+playauthenticate.newproblem.title=New problem
+playauthenticate.newproblem.name=Problem name
+playauthenticate.newproblem.create=Create
+newproblem.requireReturnType=Required
+newproblem.nameHint=Enter problem name
+newproblem.desc=Description
+newproblem.functionName=Function name
+newproblem.functionNameHint=Enter function name
 
 # play-authenticate - sample: Restricted page
 playauthenticate.restricted.secrets=Secrets, everywhere!
