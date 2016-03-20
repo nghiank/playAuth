@@ -17,7 +17,6 @@ public class ProblemAdder extends Controller {
     }
 
     public static Result doCreateProblem() {
-
         //TODO : need to authenticate user's session
         com.feth.play.module.pa.controllers.Authenticate.noCache(response());
         final Form<ProblemForm> filledForm = ADD_PROBLEM_FORM.bindFromRequest();
@@ -29,6 +28,6 @@ public class ProblemAdder extends Controller {
     }
 
     private static Result handleNewProblem(final Http.Context ctx) {
-        return redirect(routes.ProblemAdder.problem());
+        return redirect(routes.Application.index());
     }
 }
